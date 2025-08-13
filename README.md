@@ -1,20 +1,39 @@
-# TRADEX - Painel Forex (Streamlit + TradingView)
 
-## Rodar localmente
+# TRADEx — Crypto Heatmap (Coin360-like, gratuito)
+
+Painel simples, fullscreen e intuitivo com **heatmap por capitalização de mercado** e **cores por variação 24h**, usando **dados gratuitos** da CoinGecko API.
+
+**Stack:** Streamlit + Plotly + Requests  
+**Dados:** CoinGecko (gratuito)  
+**Atualização:** automática a cada 60s (ajuste em `app.py` via `REFRESH_SEC`).
+
+---
+
+## 🚀 Executar localmente
 ```bash
 pip install -r requirements.txt
-streamlit run tradex_painel.py
+streamlit run app.py
 ```
 
-## Deploy (Streamlit Community Cloud)
-1. Suba estes arquivos para um repositório no GitHub (incluindo `loho2.png`).
-2. Vá em https://share.streamlit.io/ (Streamlit Community Cloud) e clique em **New app**.
-3. Selecione seu repositório e arquivo principal `tradex_painel.py`. Clique **Deploy**.
-4. Seu app ficará acessível em `https://<seu-projeto>.streamlit.app`.
+App abre em `http://localhost:8501`.
 
-## Deploy (Render.com - com domínio próprio)
-1. Crie conta no https://render.com e clique em **New +** > **Web Service**.
-2. Conecte seu GitHub e selecione o repositório.
-3. **Runtime**: *Python 3* — **Build Command**: `pip install -r requirements.txt`
-4. **Start Command**: `streamlit run tradex_painel.py --server.port $PORT --server.address 0.0.0.0`
-5. Após o deploy, adicione seu domínio em **Settings > Custom Domains** e siga as instruções de DNS.
+---
+
+## ☁️ Publicar (Streamlit Community Cloud — grátis)
+1. Crie um repositório no GitHub e envie os arquivos deste projeto.
+2. Acesse https://streamlit.io/cloud e faça login com o GitHub.
+3. Clique **New app** → selecione seu repositório e o arquivo `app.py` → **Deploy**.
+
+---
+
+## 🔧 Personalizações rápidas
+- Logo: substitua `assets/logo.png` pelo seu arquivo (mesmo nome).
+- Quantidade de moedas: ajuste `TOP_N` em `app.py`.
+- Intervalo de atualização: ajuste `REFRESH_SEC` em `app.py`.
+- Cores do heatmap: edite `color_scale` em `app.py`.
+
+---
+
+## ℹ️ Observações
+- CoinGecko possui limites de taxa. Em alto tráfego, aumente `REFRESH_SEC`.
+- Este painel é apenas informativo. Não é recomendação de investimento.
